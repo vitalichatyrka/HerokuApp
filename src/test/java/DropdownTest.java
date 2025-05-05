@@ -29,13 +29,13 @@ public class DropdownTest {
         Select dropdown = new Select(driver.findElement(By.id("dropdown")));
         List<WebElement> allOptions = dropdown.getOptions();
         for (WebElement option : allOptions) {
-            Assert.assertTrue(option.isDisplayed(), "Option is not shown");
+            softAssert.assertTrue(option.isDisplayed(), "Option is not shown");
         }
         dropdown.selectByIndex(1);
-        Assert.assertEquals(dropdown.getFirstSelectedOption().getText(),
+        softAssert.assertEquals(dropdown.getFirstSelectedOption().getText(),
                 "Option 1", "Option 1 should be selected");
         dropdown.selectByIndex(2);
-        Assert.assertEquals(dropdown.getFirstSelectedOption().getText(),
+        softAssert.assertEquals(dropdown.getFirstSelectedOption().getText(),
                 "Option 2", "Option 1 should be selected");
         softAssert.assertAll();
     }

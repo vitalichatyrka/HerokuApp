@@ -27,15 +27,15 @@ public class CheckboxesTest {
         driver.get("https://the-internet.herokuapp.com/checkboxes");
         List<WebElement> checkboxes = driver.findElements(
                 By.cssSelector("input[type=checkbox]"));
-        Assert.assertFalse(checkboxes.get(0).isSelected(),
+        softAssert.assertFalse(checkboxes.get(0).isSelected(),
                 "First checkbox should be unchecked");
-        Assert.assertTrue(checkboxes.get(1).isSelected(),
+        softAssert.assertTrue(checkboxes.get(1).isSelected(),
                 "Second checkbox should be checked");
         checkboxes.get(0).click();
-        Assert.assertTrue(checkboxes.get(0).isSelected(),
+        softAssert.assertTrue(checkboxes.get(0).isSelected(),
                 "First checkbox should be checked after clicking");
         checkboxes.get(1).click();
-        Assert.assertFalse(checkboxes.get(1).isSelected(),
+        softAssert.assertFalse(checkboxes.get(1).isSelected(),
                 "Second checkbox should be unchecked after clicking");
         softAssert.assertAll();
     }

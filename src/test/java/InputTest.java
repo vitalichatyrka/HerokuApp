@@ -27,16 +27,16 @@ public class InputTest {
         driver.get("https://the-internet.herokuapp.com/inputs");
         WebElement input = driver.findElement(By.tagName("input"));
         input.sendKeys("test");
-        Assert.assertEquals(input.getAttribute("value"), "");
+        softAssert.assertEquals(input.getAttribute("value"), "");
         input.clear();
         input.sendKeys("1234567890");
-        Assert.assertEquals(input.getAttribute("value"), "1234567890");
+        softAssert.assertEquals(input.getAttribute("value"), "1234567890");
         input.clear();
         input.sendKeys(Keys.ARROW_UP);
         input.sendKeys(Keys.ARROW_UP);
-        Assert.assertEquals(input.getAttribute("value"), "2");
+        softAssert.assertEquals(input.getAttribute("value"), "2");
         input.sendKeys(Keys.ARROW_DOWN);
-        Assert.assertEquals(input.getAttribute("value"), "1");
+        softAssert.assertEquals(input.getAttribute("value"), "1");
         softAssert.assertAll();
     }
 
