@@ -8,12 +8,13 @@ import org.testng.asserts.SoftAssert;
 
 import java.time.Duration;
 
-public  class  BaseTest {
+public class BaseTest {
 
     WebDriver driver;
     Actions actions;
     SoftAssert softAssert;
     WebDriverWait wait;
+
     @BeforeMethod
     public void setup() {
         driver = new ChromeDriver();

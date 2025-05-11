@@ -17,6 +17,7 @@ public class ContextMenuTest extends BaseTest {
         softAssert.assertEquals(alert.getText(), "You selected a context menu");
 
     }
+
     @Test
     public void testAlertIsClosedAfterAccept() {
         driver.get("https://the-internet.herokuapp.com/context_menu");
