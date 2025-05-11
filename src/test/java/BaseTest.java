@@ -1,8 +1,7 @@
-import com.sun.java.accessibility.util.AWTEventMonitor;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.asserts.SoftAssert;
@@ -14,6 +13,7 @@ public  class  BaseTest {
     WebDriver driver;
     Actions actions;
     SoftAssert softAssert;
+    WebDriverWait wait;
     @BeforeMethod
     public void setup() {
         driver = new ChromeDriver();
@@ -21,6 +21,7 @@ public  class  BaseTest {
         driver.manage().window().maximize();
         actions = new Actions(driver);
         softAssert = new SoftAssert();
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
     }
 
 

@@ -1,13 +1,12 @@
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-import java.time.Duration;
+import static org.testng.Assert.assertTrue;
 
-public class contextMenuTest extends BaseTest {
+public class ContextMenuTest extends BaseTest {
 
     @Test
     public void testAlertTextAfterRightClick() {
@@ -24,10 +23,8 @@ public class contextMenuTest extends BaseTest {
         actions.contextClick(driver.findElement(By.id("hot-spot"))).perform();
         Alert alert = driver.switchTo().alert();
         alert.accept();
-        SoftAssert softAssert = new SoftAssert();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         boolean closed = wait.until(ExpectedConditions.not(ExpectedConditions.alertIsPresent()));
-        softAssert.assertTrue(closed, "Alert did not close after accept()");
+        assertTrue(closed, "Alert did not close after accept()");
     }
 
 }
